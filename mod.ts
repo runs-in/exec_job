@@ -18,7 +18,7 @@ async function execJob(c: RunsInController): Promise<void> {
   }
 
   for (const step of steps) {
-    const shell = shellAliases[step.shell] ?? step.shell ?? "bash -e {0}";
+    const shell = shellAliases[step.shell] || step.shell || "bash -e {0}";
     await c.writeFile("/tmp/run-me", step.run);
     const cmd = shell.replace("{0}", "/tmp/run-me").split(" ");
     const cp = await c.spawn(cmd[0], cmd.slice(1), { stdio: "inherit" });
