@@ -1,0 +1,26 @@
+name: Test Deno
+on:
+  push:
+    branches: "main"
+    paths-ignore:
+      - .gitignore
+      - LICENSE
+      - README.md
+      - .github/**
+      - "!.github/workflows/test_deno.yml"
+  pull_request:
+    paths-ignore:
+      - .gitignore
+      - LICENSE
+      - README.md
+      - .github/**
+      - "!.github/workflows/test_deno.yml"
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test_deno:
+    - uses: actions/checkout@v3
+    - uses: denoland/setup-deno@v1
+    - run: deno test -A

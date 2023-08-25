@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@actions/core": "latest",
+    "yaml": "latest",
+    "p-event": "latest"
+  }
+}
