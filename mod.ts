@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
 import * as YAML from "yaml";
-import pEvent from "p-event";
+import { pEvent } from "p-event";
 import RunsInController from "./RunsInController.ts";
 
 export default async function execJob(c: RunsInController): Promise<void> {
