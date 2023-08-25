@@ -3,7 +3,12 @@ import * as YAML from "yaml";
 import { pEvent } from "p-event";
 import RunsInController from "./RunsInController.ts";
 
-export default async function execJob(c: RunsInController): Promise<void> {
+const shellAliases = {
+  __proto__: null,
+  bash: "bash -euo pipefail {0}",
+};
+
+async function execJob(c: RunsInController): Promise<void> {
   const steps = YAML.parse(core.getInput("steps"));
 
   for (const step of steps) {
