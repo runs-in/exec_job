@@ -1,5 +1,4 @@
 import RunsInController from "../RunsInController.ts";
-import { $ } from "zx";
 import { spawn } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { platform, arch } from "node:os";
