@@ -25,3 +25,5 @@ async function execJob(c: RunsInController): Promise<void> {
     await pEvent(cp, "exit");
   }
 }
+
+export default execJob;
